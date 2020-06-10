@@ -1,0 +1,39 @@
+<div>
+  <h1>Reconocimiento de Imagen</h1>
+</div>
+<mat-grid-list cols="2">
+  <mat-grid-tile>
+    <form [formGroup]="uploadForm" (ngSubmit)="submit()">
+      <mat-card class="mat-elevation-z8 example-card">
+        <mat-card-header>
+          <button mat-raised-button (click)="imagenID.click()"> Abrir una Imagen <mat-icon aria-hidden="false"
+              aria-label="Example home icon">backup</mat-icon></button>
+        </mat-card-header>
+        <img *ngIf="imageURL && imageURL !== ''" mat-card-image [src]="imageURL" [alt]="uploadForm.value.name">
+        <div hidden>
+          <input hidden type="file" name="imagen" #imagenID accept="image/*" (change)="showPreview($event)">
+        </div>
+        <mat-card-content>
+          <div *ngIf="nombreImagen">
+            <h3>Nombre de la imagen: </h3>
+            <p>{{nombreImagen}}</p>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" type="submit">Reconocer mi Imagen</button>
+        </mat-card-actions>
+      </mat-card>
+    </form>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card class="mat-elevation-z8 example-card" *ngIf="datos">
+      <mat-card-header>
+        <mat-card-title>{{datos.nombre}}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="assets/img/known/+datos.foto">
+      <mat-card-content>
+
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
