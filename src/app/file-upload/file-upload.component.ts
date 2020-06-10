@@ -12,7 +12,7 @@ export class FileUploadComponent implements OnInit {
   imageURL: string;
   uploadForm: FormGroup;
   nombreImagen: string;
-  URL = 'http://127.0.0.1:5004/identificacion/';
+  URL = 'http://127.0.0.1:5004/identificar/';
   datos: any;
   constructor(public fb: FormBuilder, public http: HttpClient) {
     // Reactive Form
